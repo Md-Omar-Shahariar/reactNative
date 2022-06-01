@@ -1,4 +1,4 @@
-import { View, Text, ScrollView } from "react-native";
+import { View, Text, ScrollView, StyleSheet } from "react-native";
 import React, { useEffect, useState } from "react";
 import Country from "./Country";
 
@@ -10,14 +10,21 @@ export default function Countries() {
       .then((data) => SetCountries(data));
   }, []);
   return (
-    <View>
-      <Text>Countries: {countries?.length}</Text>
+    <View style={{ marginTop: 20, padding: 20 }}>
       <ScrollView>
+        <Text style={styles.header}>Countries: {countries?.length}</Text>
         {countries?.map((country, index) => (
           <Country key={index} country={country}></Country>
         ))}
       </ScrollView>
-      <Text>Countries: {countries?.length}</Text>
     </View>
   );
 }
+
+const styles = StyleSheet.create({
+  header: {
+    marginTop: 50,
+    fontSize: 40,
+    color: "red",
+  },
+});
