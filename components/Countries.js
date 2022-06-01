@@ -16,7 +16,7 @@ export default function Countries() {
 
   const handleSearch = (text) => {
     const filter = countries.filter((country) =>
-      country.name.common.includes(text)
+      country.name.common.toLowerCase().includes(text.toLowerCase())
     );
     setSearched(filter);
   };
